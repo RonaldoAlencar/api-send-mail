@@ -2,7 +2,10 @@ import { Body, Controller, Post, UseGuards, UsePipes, ValidationPipe } from '@ne
 import { NodemailerService } from './nodemailer.service';
 import { AuthGuard } from 'src/auth/auth.service';
 import { MailerDto } from './dto/mailer.dto';
-@Controller('nodemailer')
+import { ApiHeader } from '@nestjs/swagger';
+
+@ApiHeader({ name: 'password', description: 'The password to access the API' })
+@Controller('mailer')
 export class NodemailerController {
   constructor(
     private readonly nodemailerService: NodemailerService
