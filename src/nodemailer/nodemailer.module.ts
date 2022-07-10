@@ -3,6 +3,7 @@ import { MailerModule } from '@nestjs-modules/mailer';
 import { NodemailerController } from './nodemailer.controller';
 import { NodemailerService } from './nodemailer.service';
 import { ConfigService } from '@nestjs/config';
+import { AuthModule } from '../auth/auth.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { ConfigService } from '@nestjs/config';
       }),
       inject: [ConfigService],
     }),
+    AuthModule,
   ],
   controllers: [NodemailerController],
   providers: [NodemailerService],
