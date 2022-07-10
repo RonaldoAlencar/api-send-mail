@@ -18,6 +18,9 @@ import { AuthModule } from '../auth/auth.module';
             pass: configService.get('SMTP_PASS'),
           },
         },
+        defaults: {
+          from: configService.get('SMTP_FROM'),
+        },
       }),
       inject: [ConfigService],
     }),
